@@ -1,0 +1,293 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esencia y Ciencia</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff8f0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #f4a460;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1em;
+    }
+
+    /* Sección de productos y servicios */
+    .section {
+      padding: 30px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #d35400;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Colores cálidos y naturales para cada tarjeta */
+    .supplements { background-color: #ffdab9; }
+    .probiotics { background-color: #ffe4b5; }
+    .cosmetics { background-color: #ffd700; }
+    .soaps { background-color: #ffdead; }
+    .advisory { background-color: #f0e68c; }
+    .retreats { background-color: #fafad2; }
+    .courses { background-color: #ffe4c4; }
+
+    /* Formulario de contacto */
+    .contact {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: 40px auto;
+    }
+
+    .contact h3 {
+      margin-bottom: 15px;
+      text-align: center;
+      color: #d35400;
+    }
+
+    .contact label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .contact input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .contact button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: #f4a460;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact button:hover {
+      background: #d35400;
+    }
+
+    /* Modal para mostrar información */
+    .modal {
+      display: none; /* Oculto por defecto */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 20px;
+      position: relative;
+    }
+
+    .modal-content h3 {
+      margin-bottom: 15px;
+      color: #d35400;
+    }
+
+    .modal-content p {
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .close-btn:hover {
+      color: #000;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Esencia y Ciencia</h1>
+    <p>Misión: Difundir el conocimiento sobre la medicina natural y el bienestar holístico.<br>
+       Visión: Ser un referente en educación y productos naturales, promoviendo un estilo de vida saludable.</p>
+  </header>
+
+  <!-- Sección de Productos -->
+  <section class="section" id="productos">
+    <h2>Productos</h2>
+    <div class="grid">
+      <div class="card supplements" data-title="Suplementos Alimenticios" data-content="Información sobre suplementos alimenticios elaborados con extractos naturales.">
+        <h3>Suplementos Alimenticios</h3>
+      </div>
+      <div class="card probiotics" data-title="Bebidas Probióticas" data-content="Descubre nuestras bebidas probióticas, perfectas para tu bienestar digestivo.">
+        <h3>Bebidas Probióticas</h3>
+      </div>
+      <div class="card cosmetics" data-title="Cosmética Natural" data-content="Explora nuestra línea de cosmética natural, cuidando tu piel con lo mejor de la naturaleza.">
+        <h3>Cosmética Natural</h3>
+      </div>
+      <div class="card soaps" data-title="Jabones Artesanales" data-content="Nuestros jabones artesanales son el resultado de una cuidadosa elaboración con ingredientes naturales.">
+        <h3>Jabones Artesanales</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Servicios y Cursos -->
+  <section class="section" id="servicios">
+    <h2>Servicios y Cursos</h2>
+    <div class="grid">
+      <div class="card advisory" data-title="Asesoría y Maquilado" data-content="Ofrecemos servicios de asesoría y maquilado para potenciar tus proyectos naturales.">
+        <h3>Asesoría y Maquilado</h3>
+      </div>
+      <div class="card retreats" data-title="Estancias y Retiros" data-content="Participa en nuestras estancias y retiros enfocados en la relajación y sanación natural.">
+        <h3>Estancias y Retiros</h3>
+      </div>
+      <div class="card courses" data-title="Cursos" data-content="Ofrecemos cursos en herbolaria, medicina tradicional, cosmética natural, jabones artesanales y naturaleza y salud.">
+        <h3>Cursos</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Contacto -->
+  <section class="section" id="contacto">
+    <div class="contact">
+      <h3>Contáctanos</h3>
+      <p>Déjanos tu número telefónico y/o correo electrónico para enviarte la información deseada.</p>
+      <form id="contactForm">
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu número">
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo">
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3 id="modalTitle">Título</h3>
+      <p id="modalContent">Contenido de la información.</p>
+    </div>
+  </div>
+
+  <script>
+    // Función para abrir el modal con la información del producto/servicio
+    const cards = document.querySelectorAll('.card');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    const closeBtn = document.querySelector('.close-btn');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const title = card.getAttribute('data-title');
+        const content = card.getAttribute('data-content');
+        modalTitle.textContent = title;
+        modalContent.textContent = content;
+        modal.style.display = 'flex';
+      });
+    });
+
+    // Función para cerrar el modal
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Cerrar modal al hacer clic fuera del contenido
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Simulación de envío del formulario de contacto
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const telefono = document.getElementById('telefono').value;
+      const correo = document.getElementById('correo').value;
+      if(telefono.trim() === "" && correo.trim() === ""){
+        alert("Por favor, ingresa al menos un medio de contacto.");
+      } else {
+        alert("¡Gracias por contactarnos! Pronto nos comunicaremos contigo.");
+        e.target.reset();
+      }
+    });
+  </script>
+</body>
+</html>
+```
